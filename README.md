@@ -21,7 +21,7 @@ class MyApp
 Put the config directory to Container's constructor: it will find all .yml and .yaml files from it
 and find all declarations like:
 ```yml
-"<namespaces>\<interface name>: <namespaces>\<class name>"
+<namespaces>\<interface name>: <namespaces>\<class name>
 ```
 If implementation class is not found for some interface - Container will search the first one in config's parent directory.
 
