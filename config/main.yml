@@ -1,2 +1,2 @@
 services:
-  app\ISayHello: app\services\HelloService
+  app\ISayHello: app\services\ConsoleHelloService

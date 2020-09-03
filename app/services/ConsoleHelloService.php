@@ -6,7 +6,7 @@ namespace app\services;
 use app\helpers\IOHelper;
 use app\ISayHello;
 
-class HelloService implements ISayHello
+class ConsoleHelloService extends AbstractService implements ISayHello
 {
     public IOHelper $ioHelper;
 
