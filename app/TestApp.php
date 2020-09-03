@@ -3,8 +3,7 @@
 namespace app;
 
 use app\controllers\TestController;
-use di\ConfigManager;
-use di\Container;
+use rkwadiga\simpledi\Container;
 
 class TestApp
 {

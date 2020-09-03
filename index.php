@@ -1,14 +1,10 @@
 <?php
 
-require './di/Autoloader.php';
+require './vendor/autoload.php';
 require './DebugHelper.php';
 
-use di\Autoloader;
-
-$autoloader = new Autoloader(__DIR__);
+$autoloader = new rkwadiga\simpledi\Autoloader(__DIR__);
 $autoloader->register();
 
-use app\TestApp;
-
-$app = new TestApp('./config');
+$app = new app\TestApp('./config');
 $app->run();

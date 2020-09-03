@@ -1,0 +1,5 @@
+{
+    "require": {
+        "rkwadriga/php-simpledi": "dev-master"
+    }
+}
