@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace di;
 
@@ -12,14 +11,14 @@ class Autoloader
         $this->basePath = $basePath;
     }
 
-    public function register():void
+    public function register() : void
     {
         spl_autoload_register(function ($name) {
             $this->loadClass($name);
         });
     }
 
-    public function loadClass(string $name):void
+    public function loadClass(string $name) : void
     {
         $classPath = $this->basePath . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $name) . '.php';
         if (!file_exists($classPath)) {

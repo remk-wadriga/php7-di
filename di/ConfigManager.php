@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace di;
 
@@ -20,7 +19,7 @@ class ConfigManager
         $this->dirname = basename(__DIR__);
     }
 
-    public function getConfiguration():array
+    public function getConfiguration() : array
     {
         $files = array_filter(scandir($this->configDir), function ($file) {
             if (in_array($file, ['.', '..'])) {
@@ -44,17 +43,17 @@ class ConfigManager
         return $config;
     }
 
-    public function getBaseDir():string
+    public function getBaseDir() : string
     {
-        return  $this->baseDIr;
+        return $this->baseDIr;
     }
 
-    public function getDirname():string
+    public function getDirname() : string
     {
         return $this->dirname;
     }
 
-    public function getConfigDir():string
+    public function getConfigDir() : string
     {
         return $this->configDir;
     }

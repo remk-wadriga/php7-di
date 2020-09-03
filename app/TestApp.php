@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace app;
 
@@ -16,7 +15,7 @@ class TestApp
         $this->container = new Container(new ConfigManager($configDir));
     }
 
-    public function run():void
+    public function run() : void
     {
         /** @var TestController $controller */
         $controller = $this->container->getInstance(TestController::class);

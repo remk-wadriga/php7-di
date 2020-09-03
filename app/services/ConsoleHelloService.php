@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace app\services;
 
@@ -15,7 +14,7 @@ class ConsoleHelloService extends AbstractService implements ISayHello
         $this->ioHelper = $helper;
     }
 
-    public function sayHello(string $string):void
+    public function sayHello(string $string) : void
     {
         $this->ioHelper->cl($string);
     }

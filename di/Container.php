@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace di;
 
@@ -23,7 +22,7 @@ class Container
      * @return object
      * @throws DiException
      */
-    public function getInstance(string $class, bool $persistent = true): object
+    public function getInstance(string $class, bool $persistent = true) : object
     {
         if ($persistent && isset($this->container[$class])) {
             return $this->container[$class];
@@ -80,7 +79,7 @@ class Container
         return $this->configManager;
     }
 
-    private function createRouting(?array $config = null):void
+    private function createRouting(?array $config = null) : void
     {
         if ($config === null) {
             $config = $this->configManager->getConfiguration();
@@ -94,7 +93,7 @@ class Container
         }
     }
 
-    private function findFirstImplementClass(string $interface, ?string $dir = null):?string
+    private function findFirstImplementClass(string $interface, ?string $dir = null) : ?string
     {
         static $baseDir;
         static $configDir;

@@ -1,5 +1,4 @@
-<?php
-declare(strict_types = 1);
+<?php declare(strict_types = 1);
 
 namespace di;
 
@@ -14,5 +13,5 @@ class DiException extends Exception
     const CODE_INVALID_CONFIGURATION_FILE = 1007;
     const CODE_IMPLEMENTATION_NOT_FOUND = 1014;
 
-    public $name = 'Di Exception';
+    public string $name = 'Di Exception';
 }
