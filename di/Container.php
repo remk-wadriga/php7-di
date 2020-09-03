@@ -10,9 +10,9 @@ class Container
     private array $container = [];
     private ConfigManager $configManager;
 
-    public function __construct(ConfigManager $configManager)
+    public function __construct(string $configDir)
     {
-        $this->configManager = $configManager;
+        $this->configManager = new ConfigManager($configDir);
         $this->createRouting();
     }
 

@@ -12,7 +12,7 @@ class TestApp
 
     public function __construct(string $configDir)
     {
-        $this->container = new Container(new ConfigManager($configDir));
+        $this->container = new Container($configDir);
     }
 
     public function run() : void
