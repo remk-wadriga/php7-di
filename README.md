@@ -24,6 +24,8 @@ and find all declarations like:
 <namespaces>\<interface name>: <namespaces>\<class name>
 ```
 If implementation class is not found for some interface - Container will search the first one in config's parent directory.
+That's why if you want to use recursive implementations search - all directories in your project that hold classes,
+must have the same names as namespaces stored in them. 
 
 Get the "singleton" class instance:
 ```php
