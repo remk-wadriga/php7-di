@@ -1,10 +1,5 @@
 # Simple DI container
 
-## Installation
-```bash
-$ composer install rkwadiga/simple-di
-```
-
 ## Using
 Create config file (for example: config/main.yml) and set implementation class for your interfaces:
 ```yml
@@ -24,7 +19,10 @@ class MyApp
 }
 ```
 Put the config directory to Container's constructor: it will find all .yml and .yaml files from it
-and find all declarations like "<namespaces>\<interface name>: <namespaces>\<class name>".
+and find all declarations like:
+```yml
+"<namespaces>\<interface name>: <namespaces>\<class name>"
+```
 If implementation class is not found for some interface - Container will search the first one in config's parent directory.
 
 Get the "singleton" class instance:
