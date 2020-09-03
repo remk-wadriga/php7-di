@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use app\ISayHello;
-use rkwadriga\filereader\Factory;
 
 class TestController
 {
@@ -16,14 +15,6 @@ class TestController
 
     public function helloAction() : void
     {
-        $dir = '/home/rkwadriga/home-projects/php7-di/runtime';
-        $fileReader = (new Factory($dir))->getReader('main.yml');
-        $fileReader->writeData([
-            'var1' => 'Value 1',
-            'var2' => 'Value 2',
-        ]);
-        \DebugHelper::dump($fileReader->readFile());
-
-        //$this->helloService->sayHello('Hello world');
+        $this->helloService->sayHello('Hello world');
     }
 }
