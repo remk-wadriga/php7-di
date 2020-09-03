@@ -74,7 +74,7 @@ class Container
         }
     }
 
-    public function getConfigManager():ConfigManager
+    public function getConfigManager() : ConfigManager
     {
         return $this->configManager;
     }
