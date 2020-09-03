@@ -11,9 +11,9 @@ class Container
     private array $container = [];
     private ConfigManager $configManager;
 
-    public function __construct(string $configDir = 'config')
+    public function __construct(ConfigManager $configManager)
     {
-        $this->configManager = new ConfigManager($configDir);
+        $this->configManager = $configManager;
         $this->createRouting($this->configManager->getConfiguration());
     }
 
@@ -70,6 +70,11 @@ class Container
             \DebugHelper::dump($e);
             throw new DiException($e->getMessage(), DiException::CODE_REFLECTION_EXCEPTION, $e);
         }
+    }
+
+    public function getConfigManager():ConfigManager
+    {
+        return $this->configManager;
     }
 
     private function createRouting(array $configuration):void

@@ -6,25 +6,23 @@ namespace di;
 class ConfigManager
 {
     private string $baseDIr;
-    private string $configFilesDir;
+    private string $configDir;
     private ?string $dirname = null;
     private array $allowedExtensions = ['yml', 'yaml'];
 
-    public function __construct(string $configFilesDir = 'config')
+    public function __construct(string $configDir)
     {
-        if (!is_dir($configFilesDir)) {
-            $configFilesDir = dirname(__DIR__) . DIRECTORY_SEPARATOR . $configFilesDir;
+        if (!is_dir($configDir)) {
+            throw new DiException("Config directory {$configDir} does not exist", DiException::CODE_INVALID_CONFIGURATION_DIR);
         }
-        if (!is_dir($configFilesDir)) {
-            throw new DiException("Config directory {$configFilesDir} does not exist", DiException::CODE_INVALID_CONFIGURATION_DIR);
-        }
-        $this->baseDIr = dirname(realpath($configFilesDir));
-        $this->configFilesDir = $configFilesDir;
+        $this->baseDIr = dirname(realpath($configDir));
+        $this->configDir = $configDir;
+        $this->dirname = basename(__DIR__);
     }
 
     public function getConfiguration():array
     {
-        $files = array_filter(scandir($this->configFilesDir), function ($file) {
+        $files = array_filter(scandir($this->configDir), function ($file) {
             if (in_array($file, ['.', '..'])) {
                 return null;
             }
@@ -35,7 +33,7 @@ class ConfigManager
         $config = [];
 
         foreach ($files as $file) {
-            $file = $this->configFilesDir . DIRECTORY_SEPARATOR . $file;
+            $file = $this->configDir . DIRECTORY_SEPARATOR . $file;
             try {
                 $config = array_merge($config, (array)yaml_parse_file($file));
             } catch (\Exception $e) {
@@ -46,13 +44,6 @@ class ConfigManager
         return $config;
     }
 
-    public function setBaseDir(string $baseDir):void
-    {
-        if (!is_dir($baseDir)) {
-            throw new DiException("Invalid base dir: {$baseDir}", DiException::CODE_INVALID_PARAM);
-        }
-        $this->baseDIr = $baseDir;
-    }
     public function getBaseDir():string
     {
         return  $this->baseDIr;
@@ -60,14 +51,11 @@ class ConfigManager
 
     public function getDirname():string
     {
-        if ($this->dirname !== null) {
-            return $this->dirname;
-        }
-        return $this->dirname = basename(__DIR__);
+        return $this->dirname;
     }
 
     public function getConfigDir():string
     {
-        return $this->configFilesDir;
+        return $this->configDir;
     }
 }

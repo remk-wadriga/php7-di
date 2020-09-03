@@ -5,14 +5,14 @@ namespace di;
 
 class Autoloader
 {
-    private $basePath;
+    private string $basePath;
 
     public function __construct(string $basePath)
     {
         $this->basePath = $basePath;
     }
 
-    public function init()
+    public function register():void
     {
         spl_autoload_register(function ($name) {
             $this->loadClass($name);

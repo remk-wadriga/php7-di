@@ -6,9 +6,9 @@ require './DebugHelper.php';
 use di\Autoloader;
 
 $autoloader = new Autoloader(__DIR__);
-$autoloader->init();
+$autoloader->register();
 
 use app\TestApp;
 
-$app = new TestApp();
+$app = new TestApp('./config');
 $app->run();
