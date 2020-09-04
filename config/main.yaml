@@ -1,2 +1,6 @@
 services:
-  app\ISayHello: app\services\ConsoleHelloService
+  app\ISayHello:
+      class: app\services\ConsoleHelloService
+      -helloText: Hello world
+  app\services\LoggerService:
+    -path: /path/to/log-files

@@ -8,10 +8,12 @@ use app\ISayHello;
 class ConsoleHelloService extends AbstractService implements ISayHello
 {
     public IOHelper $ioHelper;
+    public string $helloText;
 
-    public function __construct(IOHelper $helper)
+    public function __construct(IOHelper $helper, string $helloText)
     {
         $this->ioHelper = $helper;
+        $this->helloText = $helloText;
     }
 
     public function sayHello(string $string) : void
