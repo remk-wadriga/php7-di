@@ -9,6 +9,7 @@ class TestController
 {
     private ISayHello $helloService;
     private LoggerService $logger;
+    private string $name;
 
     public function __construct(ISayHello $helloService, LoggerService $logger)
     {
@@ -18,6 +19,11 @@ class TestController
 
     public function helloAction() : void
     {
-        $this->helloService->sayHello('Hello world');
+        $this->helloService->sayHello('Hello world from ' . $this->name);
+    }
+
+    public function setName(string $name) : void
+    {
+        $this->name = $name;
     }
 }

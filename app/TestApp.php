@@ -17,7 +17,7 @@ class TestApp
     public function run() : void
     {
         /** @var TestController $controller */
-        $controller = $this->container->getInstance(TestController::class);
+        $controller = $this->container->getInstance(TestController::class, true, ['name' => 'Default controller']);
         $controller->helloAction();
     }
 }
