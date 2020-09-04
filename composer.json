@@ -1,0 +1,6 @@
+{
+    "require": {
+        "rkwadriga/php-filereader": "dev-master",
+        "rkwadriga/php-simpledi": "dev-master"
+    }
+}
